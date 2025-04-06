@@ -77,9 +77,15 @@ const pageTitle = 'Portfolio - Desarrollador Web';
         <!-- Sección Experiencia -->
         <Section id="experience" title={t('experience.title')}>
           <div class="space-y-6">
-            <Card title={t('experience.job1.position')} variant="elevated" class="animate-slide-in">
-              <div class="mb-2 text-sm text-gray-600 dark:text-gray-400">
-                <span><T key="experience.job1.company">Empresa ABC</T></span> | <span>2020 - Presente</span>
+            <Card variant="elevated" class="animate-slide-in">
+              <div>
+                <div class="flex flex-wrap items-center gap-2 mb-2">
+                  <span class="text-xl font-semibold text-primary-600 dark:text-primary-400">{t('experience.job1.company').split('|')[0].trim()}</span>
+                  <span class="text-gray-400">|</span>
+                  <span class="text-base italic text-gray-600 dark:text-gray-400">{t('experience.job1.company').split('|')[1]?.trim() || ''}</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 dark:text-white mt-3 mb-2">{t('experience.job1.position')}</h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-4 text-lg">{t('experience.job1.period')}</p>
               </div>
               <p class="mb-4 text-gray-700 dark:text-gray-300">
                 <T key="experience.job1.description">Descripción del puesto y responsabilidades principales.</T>
@@ -123,9 +129,15 @@ const pageTitle = 'Portfolio - Desarrollador Web';
               </div>
             </Card>
             
-            <Card title={t('experience.job2.position')} variant="elevated" class="animate-slide-in">
-              <div class="mb-2 text-sm text-gray-600 dark:text-gray-400">
-                <span><T key="experience.job2.company">Empresa XYZ</T></span> | <span>2018 - 2020</span>
+            <Card variant="elevated" class="animate-slide-in">
+              <div>
+                <div class="flex flex-wrap items-center gap-2 mb-2">
+                  <span class="text-xl font-semibold text-primary-600 dark:text-primary-400">{t('experience.job2.company').split('|')[0].trim()}</span>
+                  <span class="text-gray-400">|</span>
+                  <span class="text-base italic text-gray-600 dark:text-gray-400">{t('experience.job2.company').split('|')[1]?.trim() || ''}</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 dark:text-white mt-3 mb-2">{t('experience.job2.position')}</h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-4 text-lg">{t('experience.job2.period')}</p>
               </div>
               <p class="mb-4 text-gray-700 dark:text-gray-300">
                 <T key="experience.job2.description">Descripción del puesto y responsabilidades principales.</T>
