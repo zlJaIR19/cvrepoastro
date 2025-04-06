@@ -1,0 +1,77 @@
+{
+  "nav": {
+    "title": "Résumé Professionnel",
+    "home": "Accueil",
+    "about": "À propos",
+    "education": "Éducation",
+    "experience": "Expérience",
+    "skills": "Compétences",
+    "courses": "Cours",
+    "furtherInfo": "Informations",
+    "contact": "Contact"
+  },
+  "hero": {
+    "name": "Jair Rivas",
+    "title": "Ingénieur Industriel | Spécialiste BPMN et processus",
+    "description": "Professionnel en Ingénierie Industrielle diplômé de l'UTEC, avec une spécialisation en Technologies de l'Information. Spécialiste BPMN. Je combine des connaissances techniques solides avec une orientation pratique vers l'amélioration continue et l'efficacité organisationnelle. Anglais avancé et français intermédiaire (b1.2).",
+    "contact": "Contact",
+    "download": "Télécharger CV",
+    "interests": {
+      "title": "Intérêts",
+      "tags": {
+        "bpmn": "BPMN",
+        "lean": "Lean",
+        "process_improvement": "Amélioration des processus",
+        "automation": "Automatisation",
+        "methods_engineering": "Ingénierie des méthodes",
+        "big_data": "Big data",
+        "ai": "IA",
+        "blockchain": "Blockchain",
+        "cloud": "Cloud computing"
+      }
+    }
+  },
+  "experience": {
+    "title": "Expérience",
+    "company": "Entreprise",
+    "period": "Période",
+    "responsibilities": "Responsabilités",
+    "projects": "Projets",
+    "achievements": "Réalisations",
+    "showMore": "Voir plus",
+    "showLess": "Voir moins"
+  },
+  "education": {
+    "title": "Éducation",
+    "degree": "Diplôme",
+    "institution": "Institution",
+    "period": "Période"
+  },
+  "skills": {
+    "title": "Compétences Techniques",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Outils"
+  },
+  "languages": {
+    "title": "Langues",
+    "native": "Natif",
+    "fluent": "Courant",
+    "intermediate": "Intermédiaire",
+    "basic": "Basique"
+  },
+  "courses": {
+    "title": "Cours",
+    "course": "Cours",
+    "institution": "Institution",
+    "date": "Date"
+  },
+  "furtherInfo": {
+    "title": "Informations Complémentaires",
+    "description": "Informations supplémentaires sur mes intérêts, hobbies et autres activités."
+  },
+  "footer": {
+    "copyright": "Tous droits réservés",
+    "by": "par"
+  }
+}

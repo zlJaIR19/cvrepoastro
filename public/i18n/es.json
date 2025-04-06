@@ -1,0 +1,138 @@
+{
+  "nav": {
+    "title": "Resumen Profesional",
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "education": "Educación",
+    "experience": "Experiencia",
+    "skills": "Habilidades",
+    "courses": "Cursos",
+    "furtherInfo": "Información",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "name": "Jair Rivas",
+    "title": "Ingeniero Industrial | Especialista BPMN y procesos",
+    "description": "Profesional de Ingeniería Industrial graduado de UTEC, con especialización en Tecnologías de la Información. Especialista en BPMN. Combino sólidos conocimientos técnicos con una orientación práctica hacia la mejora continua y la eficiencia organizacional. Inglés avanzado y francés intermedio (b1.2).",
+    "contact": "Contacto",
+    "download": "Descargar C.V",
+    "interests": {
+      "title": "Intereses",
+      "tags": {
+        "bpmn": "BPMN",
+        "lean": "Lean",
+        "process_improvement": "Mejora de procesos",
+        "automation": "Automatización",
+        "methods_engineering": "Ingeniería de métodos",
+        "big_data": "Big data",
+        "ai": "IA",
+        "blockchain": "Blockchain",
+        "cloud": "Cloud computing"
+      }
+    }
+  },
+  "experience": {
+    "title": "Experiencia",
+    "job1": {
+      "position": "Especialista en Procesos",
+      "company": "Empresa ABC",
+      "period": "2020 - Presente",
+      "description": "Análisis, modelado y optimización de procesos de negocio utilizando metodologías BPMN y herramientas especializadas. Implementación de mejoras para aumentar la eficiencia operativa.",
+      "responsibilities": {
+        "title": "Responsabilidades",
+        "items": [
+          "Modelado de procesos de negocio con BPMN 2.0",
+          "Análisis de cuellos de botella y oportunidades de mejora",
+          "Implementación de soluciones de automatización"
+        ]
+      },
+      "projects": {
+        "title": "Proyectos",
+        "items": [
+          "Rediseño del proceso de atención al cliente",
+          "Implementación de sistema de gestión de procesos",
+          "Desarrollo de KPIs para monitoreo de procesos"
+        ]
+      },
+      "achievements": {
+        "title": "Logros",
+        "items": [
+          "Reducción del tiempo de ciclo en un 30%",
+          "Mejora de la satisfacción del cliente en un 25%",
+          "Implementación exitosa de automatización en áreas críticas"
+        ]
+      }
+    },
+    "job2": {
+      "position": "Analista de Mejora Continua",
+      "company": "Empresa XYZ",
+      "period": "2018 - 2020",
+      "description": "Aplicación de metodologías Lean y Six Sigma para la mejora continua de procesos. Identificación y eliminación de desperdicios en la cadena de valor.",
+      "responsibilities": {
+        "title": "Responsabilidades",
+        "items": [
+          "Análisis de procesos utilizando herramientas Lean",
+          "Implementación de metodologías de mejora continua",
+          "Capacitación de equipos en técnicas de resolución de problemas"
+        ]
+      },
+      "projects": {
+        "title": "Proyectos",
+        "items": [
+          "Optimización de la cadena de suministro",
+          "Implementación de sistema Kanban"
+        ]
+      },
+      "achievements": {
+        "title": "Logros",
+        "items": [
+          "Reducción de inventario en un 20%",
+          "Disminución de tiempos de espera en un 35%"
+        ]
+      }
+    },
+    "showMore": "Mostrar más",
+    "showLess": "Mostrar menos"
+  },
+  "education": {
+    "title": "Educación",
+    "description1": "Formación completa en desarrollo de software, algoritmos y estructuras de datos. Especialización en desarrollo web.",
+    "description2": "Especialización en tecnologías web modernas, incluyendo frameworks frontend y backend, bases de datos y arquitectura de aplicaciones.",
+    "degree": "Título",
+    "institution": "Institución",
+    "period": "Periodo"
+  },
+  "courses": {
+    "title": "Cursos y Certificaciones",
+    "description1": "Curso avanzado de React que cubre hooks, context, Redux, y patrones de arquitectura para aplicaciones escalables.",
+    "description2": "Formación completa en desarrollo web, desde HTML/CSS/JS hasta Node.js, Express y MongoDB.",
+    "course": "Curso",
+    "institution": "Institución",
+    "date": "Fecha"
+  },
+  "skills": {
+    "title": "Habilidades Técnicas",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Herramientas"
+  },
+  "languages": {
+    "title": "Idiomas",
+    "native": "Nativo",
+    "fluent": "Fluido",
+    "intermediate": "Intermedio",
+    "basic": "Básico"
+  },
+  "furtherInfo": {
+    "title": "Información Adicional",
+    "description": "Información adicional sobre mis intereses, hobbies y otras actividades."
+  },
+  "contact": {
+    "title": "Contacto"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "copyright": "Todos los derechos reservados",
+    "by": "por"
+  }
+}

@@ -1,0 +1,60 @@
+---
+import "../styles/global.css";
+
+interface Skill {
+  name: string;
+  level: number; // 1-5 scale
+}
+
+const technicalSkills: Skill[] = [
+  { name: "Figma", level: 5 },
+  { name: "Adobe XD", level: 4 },
+  { name: "Sketch", level: 4 },
+  { name: "HTML/CSS", level: 4 },
+  { name: "JavaScript", level: 3 },
+  { name: "Photoshop", level: 4 },
+  { name: "Illustrator", level: 3 }
+];
+
+const languages: Skill[] = [
+  { name: "Français", level: 5 },
+  { name: "Anglais", level: 4 },
+  { name: "Espagnol", level: 3 }
+];
+---
+
+<section id="skills" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+  <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white" data-i18n="skills.title">Compétences techniques:</h2>
+  
+  <div class="h-1 w-24 bg-blue-600 dark:bg-blue-400 mb-6"></div>
+  
+  <div class="space-y-4">
+    {technicalSkills.map((skill) => (
+      <div class="mb-2">
+        <div class="flex justify-between mb-1">
+          <span class="text-sm font-medium text-gray-700 dark:text-gray-300">{skill.name}</span>
+        </div>
+        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+          <div class="bg-blue-600 dark:bg-blue-500 h-2 rounded-full" style={`width: ${skill.level * 20}%`}></div>
+        </div>
+      </div>
+    ))}
+  </div>
+  
+  <h2 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white" data-i18n="languages.title">Langues:</h2>
+  
+  <div class="h-1 w-24 bg-blue-600 dark:bg-blue-400 mb-6"></div>
+  
+  <div class="space-y-4">
+    {languages.map((language) => (
+      <div class="mb-2">
+        <div class="flex justify-between mb-1">
+          <span class="text-sm font-medium text-gray-700 dark:text-gray-300">{language.name}</span>
+        </div>
+        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+          <div class="bg-blue-600 dark:bg-blue-500 h-2 rounded-full" style={`width: ${language.level * 20}%`}></div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

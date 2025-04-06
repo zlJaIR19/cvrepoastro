@@ -1,34 +1,52 @@
-# Astro Starter Kit: Basics
+# Portfolio/CV - Astro Project
 
-```sh
-npm create astro@latest -- --template basics
-```
+A minimalistic portfolio/CV website built with Astro, Tailwind CSS, and vanilla JavaScript.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## 🚀 Features
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- **Modular Structure**: Reusable components for easy maintenance and updates
+- **Dark/Light Mode**: Toggle between themes with localStorage persistence
+- **Multilingual Support**: Available in Spanish, English, and French
+- **Responsive Design**: Mobile-first approach for all screen sizes
+- **Print-Friendly**: Optimized for printing as a traditional CV
+- **Vanilla JavaScript**: No heavy frameworks, just clean, simple code
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## 📂 Project Structure
 
 ```text
 /
 ├── public/
 │   └── favicon.svg
 ├── src/
+│   ├── components/
+│   │   ├── About.astro
+│   │   ├── Courses.astro
+│   │   ├── Education.astro
+│   │   ├── Experience.astro
+│   │   ├── Footer.astro
+│   │   ├── FurtherInfo.astro
+│   │   ├── Hero.astro
+│   │   ├── Languages.astro
+│   │   ├── Navbar.astro
+│   │   └── TechSkills.astro
 │   ├── layouts/
 │   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── locales/
+│   │   ├── en.json
+│   │   ├── es.json
+│   │   └── fr.json
+│   ├── pages/
+│   │   └── index.astro
+│   ├── scripts/
+│   │   ├── activeNavLinks.js
+│   │   ├── darkMode.js
+│   │   └── languageSwitcher.js
+│   └── styles/
+│       └── global.css
+├── astro.config.mjs
+├── package.json
+└── tailwind.config.cjs
 ```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
 ## 🧞 Commands
 
@@ -40,9 +58,19 @@ All commands are run from the root of the project, from a terminal:
 | `npm run dev`             | Starts local dev server at `localhost:4321`      |
 | `npm run build`           | Build your production site to `./dist/`          |
 | `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## 🎨 Customization
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. **Personal Information**: Update the content in each component to reflect your information
+2. **Styling**: Modify the Tailwind classes or add custom CSS in `global.css`
+3. **Languages**: Edit the JSON files in the `locales` directory to update translations
+
+## 📱 Responsive Breakpoints
+
+- **Mobile**: < 640px
+- **Tablet**: 640px - 1024px
+- **Desktop**: > 1024px
+
+## 🖨️ Print Version
+
+The site is optimized for printing. When printing, the navigation and interactive elements are hidden, providing a clean CV format.

@@ -1,0 +1,31 @@
+---
+/**
+ * Componente Section reutilizable
+ * @param {string} title - Título de la sección
+ * @param {string} id - ID para navegación
+ * @param {string} class - Clases adicionales
+ */
+const { 
+  title, 
+  id,
+  class: className = '',
+  ...rest 
+} = Astro.props;
+
+// Definir clases
+const classes = [
+  'mb-8 animate-fade-in',
+  className
+].join(' ');
+---
+
+<section id={id} class={classes} {...rest}>
+  {title && (
+    <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white border-b pb-2 border-gray-200 dark:border-gray-700">
+      {title}
+    </h2>
+  )}
+  <div>
+    <slot />
+  </div>
+</section>

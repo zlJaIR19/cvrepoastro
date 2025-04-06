@@ -1,18 +1,67 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+---
+/**
+ * Layout principal mejorado con soporte para traducciones y tema oscuro
+ */
+import '../styles/global.css';
+import { ViewTransitions } from 'astro:transitions';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+
+const { title = 'Portfolio' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio personal">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>{title}</title>
+  
+  <!-- Añadir ViewTransitions para transiciones suaves entre páginas -->
+  <ViewTransitions />
+  
+  <!-- Prevenir parpadeo al cargar la página -->
+  <script is:inline>
+    // Aplicar tema oscuro inmediatamente si está guardado en localStorage
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+  
+  <!-- Script de traducciones -->
+  <script src="/scripts/i18n.js" defer></script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen flex flex-col">
+  <Navbar />
+  
+  <main class="flex-grow">
+    <slot />
+  </main>
+  
+  <Footer />
+</body>
 </html>
 
-<style>
+<style is:global>
+	@media print {
+		nav, footer, button, .print-hide {
+			display: none !important;
+		}
+		body {
+			background-color: white !important;
+			color: black !important;
+		}
+		main {
+			padding: 0 !important;
+		}
+	}
 	html,
 	body {
 		margin: 0;

@@ -1,0 +1,103 @@
+---
+import "../styles/global.css";
+
+const frontendSkills = [
+  { name: "HTML5", level: 90 },
+  { name: "CSS3/SASS", level: 85 },
+  { name: "JavaScript", level: 80 },
+  { name: "TypeScript", level: 75 },
+  { name: "Tailwind CSS", level: 85 },
+  { name: "Astro", level: 80 },
+];
+
+const backendSkills = [
+  { name: "Node.js", level: 70 },
+  { name: "Express", level: 65 },
+  { name: "MongoDB", level: 60 },
+  { name: "SQL", level: 65 },
+];
+
+const toolsSkills = [
+  { name: "Git", level: 85 },
+  { name: "VS Code", level: 90 },
+  { name: "Figma", level: 75 },
+  { name: "Webpack", level: 65 },
+  { name: "Docker", level: 50 },
+];
+---
+
+<section id="skills" class="py-16 bg-gray-50 dark:bg-gray-800">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white" data-i18n="skills.title">Habilidades Técnicas</h2>
+    
+    <div class="max-w-4xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Frontend Skills -->
+        <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6">
+          <h3 class="text-xl font-semibold mb-6 text-gray-900 dark:text-white" data-i18n="skills.frontend">Frontend</h3>
+          <div class="space-y-4">
+            {frontendSkills.map((skill) => (
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="text-gray-700 dark:text-gray-300">{skill.name}</span>
+                  <span class="text-gray-500 dark:text-gray-400">{skill.level}%</span>
+                </div>
+                <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+                  <div 
+                    class="bg-blue-600 dark:bg-blue-500 h-2.5 rounded-full" 
+                    style={`width: ${skill.level}%`}
+                  ></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <!-- Backend & Tools -->
+        <div class="space-y-8">
+          <!-- Backend Skills -->
+          <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-semibold mb-6 text-gray-900 dark:text-white" data-i18n="skills.backend">Backend</h3>
+            <div class="space-y-4">
+              {backendSkills.map((skill) => (
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-gray-700 dark:text-gray-300">{skill.name}</span>
+                    <span class="text-gray-500 dark:text-gray-400">{skill.level}%</span>
+                  </div>
+                  <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+                    <div 
+                      class="bg-green-600 dark:bg-green-500 h-2.5 rounded-full" 
+                      style={`width: ${skill.level}%`}
+                    ></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <!-- Tools -->
+          <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-semibold mb-6 text-gray-900 dark:text-white" data-i18n="skills.tools">Herramientas</h3>
+            <div class="space-y-4">
+              {toolsSkills.map((skill) => (
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-gray-700 dark:text-gray-300">{skill.name}</span>
+                    <span class="text-gray-500 dark:text-gray-400">{skill.level}%</span>
+                  </div>
+                  <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+                    <div 
+                      class="bg-purple-600 dark:bg-purple-500 h-2.5 rounded-full" 
+                      style={`width: ${skill.level}%`}
+                    ></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

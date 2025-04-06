@@ -1,0 +1,38 @@
+---
+import "../styles/global.css";
+
+interface InfoSection {
+  title: string;
+  items: string[];
+}
+
+const furtherInfoData: InfoSection[] = [
+  {
+    title: "Intérêts",
+    items: ["Design d'interface", "Expérience utilisateur", "Communication visuelle", "Médias sociaux"]
+  },
+  {
+    title: "Loisirs",
+    items: ["Photographie", "Lecture", "Voyages", "Dessin"]
+  }
+];
+---
+
+<section id="furtherInfo" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+  <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white" data-i18n="furtherInfo.title">Información adicional:</h2>
+  
+  <div class="h-1 w-24 bg-blue-600 dark:bg-blue-400 mb-6"></div>
+  
+  <div class="space-y-6">
+    {furtherInfoData.map((section) => (
+      <div class="mb-4">
+        <h3 class="text-lg font-medium text-gray-800 dark:text-white mb-2">{section.title}</h3>
+        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1">
+          {section.items.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>

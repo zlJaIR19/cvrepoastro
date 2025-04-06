@@ -1,0 +1,16 @@
+---
+/**
+ * Componente T (Translation) reutilizable
+ * Permite usar traducciones de forma declarativa en los componentes
+ * 
+ * @param {string} key - Clave de traducción
+ * @param {string} lang - Idioma (opcional, por defecto toma el del localStorage)
+ */
+const { key, lang } = Astro.props;
+
+// El valor real se aplicará mediante JavaScript en el cliente
+---
+
+<span data-i18n={key}>
+  <slot />
+</span>

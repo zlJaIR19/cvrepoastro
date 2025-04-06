@@ -1,0 +1,45 @@
+---
+/**
+ * Componente Card reutilizable
+ * @param {string} title - Título de la tarjeta
+ * @param {string} variant - Variante de la tarjeta (default, bordered, elevated)
+ * @param {string} class - Clases adicionales
+ */
+const { 
+  title, 
+  variant = 'default', 
+  class: className = '',
+  ...rest 
+} = Astro.props;
+
+// Definir clases base
+const baseClasses = 'bg-white dark:bg-gray-800 rounded-lg overflow-hidden transition-all duration-300';
+
+// Definir clases por variante
+const variantClasses = {
+  default: 'shadow',
+  bordered: 'border border-gray-200 dark:border-gray-700',
+  elevated: 'shadow-lg hover:shadow-xl',
+};
+
+// Asegurarse de que variant sea un valor válido
+const safeVariant = variantClasses[variant as keyof typeof variantClasses] ? variant : 'default';
+
+// Combinar todas las clases
+const classes = [
+  baseClasses,
+  variantClasses[safeVariant as keyof typeof variantClasses],
+  className
+].join(' ');
+---
+
+<div class={classes} {...rest}>
+  {title && (
+    <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+      <h3 class="text-lg font-semibold text-gray-800 dark:text-white">{title}</h3>
+    </div>
+  )}
+  <div class="p-6">
+    <slot />
+  </div>
+</div>

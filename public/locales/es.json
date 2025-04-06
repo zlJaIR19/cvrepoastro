@@ -1,0 +1,64 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "education": "Educación",
+    "experience": "Experiencia",
+    "skills": "Habilidades",
+    "languages": "Idiomas",
+    "courses": "Cursos",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "title": "Desarrollador Frontend",
+    "contact": "Contacto"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "description": "Soy un desarrollador frontend apasionado por crear experiencias web atractivas y funcionales. Me especializo en tecnologías modernas como HTML5, CSS3, JavaScript y frameworks como Astro."
+  },
+  "education": {
+    "title": "Educación",
+    "degree": "Título",
+    "institution": "Institución",
+    "period": "Periodo"
+  },
+  "experience": {
+    "title": "Experiencia",
+    "company": "Empresa",
+    "period": "Periodo",
+    "responsibilities": "Responsabilidades",
+    "projects": "Proyectos",
+    "achievements": "Logros",
+    "showMore": "Mostrar más",
+    "showLess": "Mostrar menos"
+  },
+  "skills": {
+    "title": "Habilidades Técnicas",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Herramientas"
+  },
+  "languages": {
+    "title": "Idiomas",
+    "native": "Nativo",
+    "fluent": "Fluido",
+    "intermediate": "Intermedio",
+    "basic": "Básico"
+  },
+  "courses": {
+    "title": "Cursos",
+    "course": "Curso",
+    "institution": "Institución",
+    "date": "Fecha"
+  },
+  "furtherInfo": {
+    "title": "Información Adicional",
+    "description": "Información adicional sobre mis intereses, hobbies y otras actividades."
+  },
+  "footer": {
+    "copyright": "Todos los derechos reservados",
+    "by": "por"
+  }
+}

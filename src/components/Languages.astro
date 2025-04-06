@@ -1,0 +1,75 @@
+---
+import "../styles/global.css";
+
+interface Language {
+  language: string;
+  level: string;
+  percentage: number;
+}
+
+const languagesData: Language[] = [
+  {
+    language: "Español",
+    level: "native",
+    percentage: 100
+  },
+  {
+    language: "Inglés",
+    level: "fluent",
+    percentage: 90
+  },
+  {
+    language: "Francés",
+    level: "intermediate",
+    percentage: 60
+  },
+  {
+    language: "Alemán",
+    level: "basic",
+    percentage: 30
+  }
+];
+---
+
+<section id="languages" class="py-16 bg-white dark:bg-gray-900">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white" data-i18n="languages.title">Idiomas</h2>
+    
+    <div class="max-w-3xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-6">
+        {languagesData.map((lang) => (
+          <div class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md p-6">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white">{lang.language}</h3>
+              <span 
+                class={`px-3 py-1 text-sm rounded-full ${
+                  lang.level === 'native' ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200' :
+                  lang.level === 'fluent' ? 'bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200' :
+                  lang.level === 'intermediate' ? 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200' :
+                  'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200'
+                }`}
+                data-i18n={`languages.${lang.level}`}
+              >
+                {lang.level === 'native' ? 'Nativo' : 
+                 lang.level === 'fluent' ? 'Fluido' : 
+                 lang.level === 'intermediate' ? 'Intermedio' : 'Básico'}
+              </span>
+            </div>
+            
+            <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5 mb-2">
+              <div 
+                class={`h-2.5 rounded-full ${
+                  lang.level === 'native' ? 'bg-green-600 dark:bg-green-500' :
+                  lang.level === 'fluent' ? 'bg-blue-600 dark:bg-blue-500' :
+                  lang.level === 'intermediate' ? 'bg-yellow-600 dark:bg-yellow-500' :
+                  'bg-gray-400 dark:bg-gray-500'
+                }`}
+                style={`width: ${lang.percentage}%`}
+              ></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

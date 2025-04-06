@@ -3,12 +3,15 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "dev": "npm run copy-i18n && astro dev",
+    "build": "npm run copy-i18n && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "copy-i18n": "if not exist public\\i18n mkdir public\\i18n && copy src\\i18n\\*.json public\\i18n\\"
   },
   "dependencies": {
-    "astro": "^5.6.1"
+    "@tailwindcss/vite": "^4.1.3",
+    "astro": "^5.6.1",
+    "tailwindcss": "^4.1.3"
   }
 }

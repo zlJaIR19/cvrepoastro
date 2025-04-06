@@ -1,0 +1,143 @@
+{
+  "nav": {
+    "title": "My Portfolio",
+    "home": "Home",
+    "about": "About me",
+    "education": "Education",
+    "experience": "Experience",
+    "skills": "Skills",
+    "courses": "Courses",
+    "furtherInfo": "Information",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "",
+    "name": "Jair Rivas",
+    "title": "Industrial Engineer | BPMN and Process Specialist",
+    "description": "Industrial Engineering professional graduated from UTEC, with specialization in Information Technologies. BPMN Specialist. I combine solid technical knowledge with a practical orientation towards continuous improvement and organizational efficiency. Advanced English and intermediate French (b1.2).",
+    "contact": "Contact",
+    "download": "Download CV",
+    "interests": {
+      "title": "Interests",
+      "tags": {
+        "bpmn": "BPMN",
+        "lean": "Lean",
+        "process_improvement": "Process improvement",
+        "automation": "Automation",
+        "methods_engineering": "Methods engineering",
+        "big_data": "Big data",
+        "ai": "AI",
+        "blockchain": "Blockchain",
+        "cloud": "Cloud computing"
+      }
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "description": ""
+  },
+  "experience": {
+    "title": "Experience",
+    "job1": {
+      "position": "Process Specialist",
+      "company": "ABC Company",
+      "period": "2020 - Present",
+      "description": "Analysis, modeling and optimization of business processes using BPMN methodologies and specialized tools. Implementation of improvements to increase operational efficiency.",
+      "responsibilities": {
+        "title": "Responsibilities",
+        "items": [
+          "Business process modeling with BPMN 2.0",
+          "Analysis of bottlenecks and improvement opportunities",
+          "Implementation of automation solutions"
+        ]
+      },
+      "projects": {
+        "title": "Projects",
+        "items": [
+          "Customer service process redesign",
+          "Implementation of process management system",
+          "Development of KPIs for process monitoring"
+        ]
+      },
+      "achievements": {
+        "title": "Achievements",
+        "items": [
+          "30% reduction in cycle time",
+          "25% improvement in customer satisfaction",
+          "Successful implementation of automation in critical areas"
+        ]
+      }
+    },
+    "job2": {
+      "position": "Continuous Improvement Analyst",
+      "company": "XYZ Company",
+      "period": "2018 - 2020",
+      "description": "Application of Lean and Six Sigma methodologies for continuous process improvement. Identification and elimination of waste in the value chain.",
+      "responsibilities": {
+        "title": "Responsibilities",
+        "items": [
+          "Process analysis using Lean tools",
+          "Implementation of continuous improvement methodologies",
+          "Team training in problem-solving techniques"
+        ]
+      },
+      "projects": {
+        "title": "Projects",
+        "items": [
+          "Supply chain optimization",
+          "Kanban system implementation"
+        ]
+      },
+      "achievements": {
+        "title": "Achievements",
+        "items": [
+          "20% inventory reduction",
+          "35% reduction in waiting times"
+        ]
+      }
+    },
+    "showMore": "Show more",
+    "showLess": "Show less"
+  },
+  "education": {
+    "title": "Education",
+    "description1": "Comprehensive training in software development, algorithms and data structures. Specialization in web development.",
+    "description2": "Specialization in modern web technologies, including frontend and backend frameworks, databases and application architecture.",
+    "degree": "Degree",
+    "institution": "Institution",
+    "period": "Period"
+  },
+  "skills": {
+    "title": "Skills",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Tools"
+  },
+  "languages": {
+    "title": "Languages",
+    "native": "Native",
+    "fluent": "Fluent",
+    "intermediate": "Intermediate",
+    "basic": "Basic"
+  },
+  "courses": {
+    "title": "Courses and Certifications",
+    "description1": "Advanced React course covering hooks, context, Redux, and architecture patterns for scalable applications.",
+    "description2": "Comprehensive training in web development, from HTML/CSS/JS to Node.js, Express and MongoDB.",
+    "course": "Course",
+    "institution": "Institution",
+    "date": "Date"
+  },
+  "furtherInfo": {
+    "title": "Further Information",
+    "description": "Additional information about my interests, hobbies, and other activities."
+  },
+  "contact": {
+    "title": "Contact"
+  },
+  "footer": {
+    "copyright": "",
+    "rights": "All rights reserved",
+    "by": ""
+  }
+}

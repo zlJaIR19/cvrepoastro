@@ -1,0 +1,47 @@
+---
+/**
+ * Componente Button reutilizable
+ * @param {string} variant - Variante del botón (primary, secondary, outline)
+ * @param {string} size - Tamaño del botón (sm, md, lg)
+ * @param {string} class - Clases adicionales
+ */
+const { 
+  variant = 'primary', 
+  size = 'md', 
+  class: className = '',
+  ...rest 
+} = Astro.props;
+
+// Definir clases base
+const baseClasses = 'inline-flex items-center justify-center font-medium transition-colors rounded focus:outline-none focus:ring-2 focus:ring-offset-2';
+
+// Definir clases por variante
+const variantClasses = {
+  primary: 'bg-primary hover:bg-primary-600 text-white focus:ring-primary-500',
+  secondary: 'bg-secondary-200 dark:bg-secondary-700 hover:bg-secondary-300 dark:hover:bg-secondary-600 text-secondary-800 dark:text-secondary-200 focus:ring-secondary-500',
+  outline: 'border border-gray-300 dark:border-gray-600 bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-gray-200 focus:ring-gray-500',
+};
+
+// Definir clases por tamaño
+const sizeClasses = {
+  sm: 'px-3 py-1.5 text-sm',
+  md: 'px-4 py-2 text-base',
+  lg: 'px-5 py-2.5 text-lg',
+};
+
+// Asegurarse de que variant y size sean valores válidos
+const safeVariant = variantClasses[variant as keyof typeof variantClasses] ? variant : 'primary';
+const safeSize = sizeClasses[size as keyof typeof sizeClasses] ? size : 'md';
+
+// Combinar todas las clases
+const classes = [
+  baseClasses,
+  variantClasses[safeVariant as keyof typeof variantClasses],
+  sizeClasses[safeSize as keyof typeof sizeClasses],
+  className
+].join(' ');
+---
+
+<button class={classes} {...rest}>
+  <slot />
+</button>

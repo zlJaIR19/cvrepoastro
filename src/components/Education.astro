@@ -1,0 +1,39 @@
+---
+import "../styles/global.css";
+
+interface Education {
+  degree: string;
+  institution: string;
+  period: string;
+  description: string;
+}
+
+const educationData: Education[] = [
+  {
+    degree: "Licence Médias et communication",
+    institution: "Université de Paris",
+    period: "2022 - 2025",
+    description: "Spécialisation en création de contenu numérique et stratégies de communication."
+  }
+];
+---
+
+<section id="education" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+  <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white" data-i18n="education.title">Éducation:</h2>
+  
+  <div class="h-1 w-24 bg-blue-600 dark:bg-blue-400 mb-6"></div>
+  
+  <div class="space-y-6">
+    {educationData.map((item) => (
+      <div class="mb-4">
+        <h3 class="text-xl font-semibold text-gray-800 dark:text-white">{item.degree}</h3>
+        <div class="flex flex-col sm:flex-row sm:items-center text-sm text-gray-600 dark:text-gray-400 mt-1">
+          <span class="font-medium" data-i18n-key="education.institution">{item.institution}</span>
+          <span class="hidden sm:inline mx-2">•</span>
+          <span data-i18n-key="education.period">{item.period}</span>
+        </div>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">{item.description}</p>
+      </div>
+    ))}
+  </div>
+</section>
