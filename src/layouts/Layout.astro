@@ -3,6 +3,7 @@
  * Layout principal mejorado con soporte para traducciones y tema oscuro
  */
 import '../styles/global.css';
+import '../styles/theme-fix.css';
 import { ViewTransitions } from 'astro:transitions';
 import Navbar from '../components/layout/Navbar.astro';
 import Footer from '../components/layout/Footer.astro';
@@ -23,51 +24,68 @@ const { title = 'Portfolio' } = Astro.props;
   <!-- Añadir ViewTransitions para transiciones suaves entre páginas -->
   <ViewTransitions />
   
-  <!-- Prevenir parpadeo al cargar la página - Script mínimo para aplicar tema inicial -->
+  <!-- Critical dark mode styles - injected to prevent flash -->
   <script is:inline>
-    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-
-    // Define toggle function according to Tailwind docs
-    window.toggleTheme = function() {
-      // Check if dark mode is currently active
-      if (document.documentElement.classList.contains('dark')) {
-        // If dark mode is active, switch to light mode
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-        
-        // Update icons
-        const moonIcon = document.getElementById('moon-icon');
-        const sunIcon = document.getElementById('sun-icon');
-        if (moonIcon && sunIcon) {
-          moonIcon.classList.remove('hidden');
-          sunIcon.classList.add('hidden');
-        }
-      } else {
-        // If light mode is active, switch to dark mode
+    // Immediately apply the right theme on page load
+    (function() {
+      const theme = localStorage.getItem('theme') || 'light';
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      if (theme === 'dark' || (!theme && prefersDark)) {
         document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
+  
+  <!-- Tailwind-compatible dark mode helper -->
+  <style is:global>
+    /* Ensure transitions are smooth */
+    :root {
+      color-scheme: light;
+    }
+    
+    html.dark {
+      color-scheme: dark;
+    }
+    
+    body {
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+    
+    /* Force dark mode styles to take precedence */
+    html.dark body {
+      background-color: #111827 !important;
+      color: #e5e7eb !important;
+    }
+  </style>
+  
+  <!-- Global theme toggle function -->
+  <script is:inline>
+    // Make the toggle function available globally
+    window.toggleTheme = function() {
+      const html = document.documentElement;
+      const isDark = html.classList.contains('dark');
+      
+      console.log('Toggle theme called. Current dark mode:', isDark);
+      
+      if (isDark) {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        console.log('Switched to light mode');
+      } else {
+        html.classList.add('dark');
         localStorage.setItem('theme', 'dark');
-        
-        // Update icons
-        const moonIcon = document.getElementById('moon-icon');
-        const sunIcon = document.getElementById('sun-icon');
-        if (moonIcon && sunIcon) {
-          moonIcon.classList.add('hidden');
-          sunIcon.classList.remove('hidden');
-        }
+        console.log('Switched to dark mode');
       }
     };
   </script>
   
   <!-- Cargar scripts principales -->
-  <script src="/scripts/theme.js" defer></script>
   <script src="/scripts/i18n.js" defer></script>
 </head>
-<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen flex flex-col transition-colors duration-200">
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen flex flex-col">
   <Navbar />
   
   <main class="flex-grow pt-6">

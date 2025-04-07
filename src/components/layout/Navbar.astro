@@ -45,29 +45,39 @@ const { lang, t } = getI18n(Astro.url);
       <div class="flex items-center space-x-4">
         <!-- Language Switcher -->
         <div class="flex space-x-2">
-          <button id="es-btn" class="language-btn w-8 h-8 rounded-md flex items-center justify-center text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200" data-lang="es">
+          <button id="es-btn" class="language-btn w-8 h-8 rounded-md flex items-center justify-center text-sm font-medium" data-lang="es" data-active={lang === 'es' ? 'true' : 'false'}>
             ES
           </button>
-          <button id="en-btn" class="language-btn w-8 h-8 rounded-md flex items-center justify-center text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200" data-lang="en">
+          <button id="en-btn" class="language-btn w-8 h-8 rounded-md flex items-center justify-center text-sm font-medium" data-lang="en" data-active={lang === 'en' ? 'true' : 'false'}>
             EN
           </button>
-          <button id="fr-btn" class="language-btn w-8 h-8 rounded-md flex items-center justify-center text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200" data-lang="fr">
+          <button id="fr-btn" class="language-btn w-8 h-8 rounded-md flex items-center justify-center text-sm font-medium" data-lang="fr" data-active={lang === 'fr' ? 'true' : 'false'}>
             FR
           </button>
         </div>
         
-        <!-- Dark Mode Toggle -->
-        <button id="darkModeToggle" class="p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-gray-800 dark:text-gray-200" aria-label="Toggle dark mode" onclick="toggleTheme()">
-          <svg id="moon-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-          </svg>
-          <svg id="sun-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
-          </svg>
-        </button>
+        <!-- Modern Dark Mode Toggle - Slider style -->
+        <div class="flex items-center ml-4">
+          <button 
+            id="theme-toggle-btn"
+            type="button" 
+            class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 hover:bg-gray-300 dark:hover:bg-gray-600 cursor-pointer z-10"
+            onclick="window.toggleTheme()"
+            aria-label="Toggle dark mode"
+          >
+            <span class="sr-only">Toggle dark mode</span>
+            <span 
+              class="pointer-events-none absolute mx-auto h-4 w-4 rounded-full bg-white shadow-lg transform transition-transform duration-300 ease-in-out translate-x-1 dark:translate-x-6"
+            ></span>
+          </button>
+          <span class="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+            <span class="dark:hidden">Light</span>
+            <span class="hidden dark:inline">Dark</span>
+          </span>
+        </div>
         
         <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="md:hidden p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+        <button id="mobile-menu-btn" class="md:hidden p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
           </svg>
@@ -78,22 +88,22 @@ const { lang, t } = getI18n(Astro.url);
     <!-- Mobile Menu (Hidden by default) -->
     <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2">
       <div class="flex flex-col space-y-3">
-        <a href="#about" class="nav-link text-gray-800 dark:text-gray-200" data-i18n="nav.about">
+        <a href="#about" class="nav-link text-gray-800 dark:text-gray-200" data-i18n="nav.about" onclick="document.getElementById('mobile-menu').classList.add('hidden')">
           {t('nav.about')}
         </a>
-        <a href="#education" class="nav-link text-gray-800 dark:text-gray-200" data-i18n="nav.education">
+        <a href="#education" class="nav-link text-gray-800 dark:text-gray-200" data-i18n="nav.education" onclick="document.getElementById('mobile-menu').classList.add('hidden')">
           {t('nav.education')}
         </a>
-        <a href="#experience" class="nav-link text-gray-800 dark:text-gray-200" data-i18n="nav.experience">
+        <a href="#experience" class="nav-link text-gray-800 dark:text-gray-200" data-i18n="nav.experience" onclick="document.getElementById('mobile-menu').classList.add('hidden')">
           {t('nav.experience')}
         </a>
-        <a href="#skills" class="nav-link text-gray-800 dark:text-gray-200" data-i18n="nav.skills">
+        <a href="#skills" class="nav-link text-gray-800 dark:text-gray-200" data-i18n="nav.skills" onclick="document.getElementById('mobile-menu').classList.add('hidden')">
           {t('nav.skills')}
         </a>
-        <a href="#courses" class="nav-link text-gray-800 dark:text-gray-200" data-i18n="nav.courses">
+        <a href="#courses" class="nav-link text-gray-800 dark:text-gray-200" data-i18n="nav.courses" onclick="document.getElementById('mobile-menu').classList.add('hidden')">
           {t('nav.courses')}
         </a>
-        <a href="#furtherInfo" class="nav-link text-gray-800 dark:text-gray-200" data-i18n="nav.furtherInfo">
+        <a href="#furtherInfo" class="nav-link text-gray-800 dark:text-gray-200" data-i18n="nav.furtherInfo" onclick="document.getElementById('mobile-menu').classList.add('hidden')">
           {t('nav.furtherInfo')}
         </a>
       </div>
@@ -121,34 +131,49 @@ const { lang, t } = getI18n(Astro.url);
   }
 </style>
 
+<script is:inline>
+  // Direct inline script for theme toggle
+  document.addEventListener('DOMContentLoaded', function() {
+    // Set active language button
+    const currentLang = document.documentElement.lang || 'es';
+    document.querySelectorAll('.language-btn').forEach(btn => {
+      if (btn.dataset.lang === currentLang) {
+        btn.dataset.active = 'true';
+      } else {
+        btn.dataset.active = 'false';
+      }
+    });
+    
+    // Add event listeners to language buttons
+    document.querySelectorAll('.language-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.language-btn').forEach(b => {
+          b.dataset.active = 'false';
+        });
+        this.dataset.active = 'true';
+      });
+    });
+  });
+</script>
+
 <script>
   // Importar utilidades
   import { initI18n } from '../../utils/i18n.js';
   
-  // Inicializar cuando el DOM esté listo
-  document.addEventListener('DOMContentLoaded', () => {
+  // Initialize translations
+  document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM content loaded, initializing i18n');
     
     // Inicializar traducciones
     initI18n();
-    
-    // Inicializar menú móvil
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    if (mobileMenuBtn && mobileMenu) {
-      mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
-      
-      // Cerrar menú al hacer clic en un enlace
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-          if (!mobileMenu.classList.contains('hidden')) {
-            mobileMenu.classList.add('hidden');
-          }
-        });
-      });
-    }
   });
+</script>
+
+<script>
+  function toggleTheme() {
+    document.documentElement.classList.toggle('dark');
+    const isDark = document.documentElement.classList.contains('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    console.log('Theme toggled to:', isDark ? 'dark' : 'light');
+  }
 </script>

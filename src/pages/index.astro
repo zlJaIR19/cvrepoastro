@@ -184,6 +184,40 @@ const pageTitle = 'Portfolio - Desarrollador Web';
           </div>
         </Section>
         
+        <!-- Sección Habilidades -->
+        <Section id="skills" title={t('skills.title')}>
+          <div class="space-y-3">
+            <div>
+              <h4 class="font-medium text-gray-900 dark:text-white mb-2">Frontend</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm">HTML5</span>
+                <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm">CSS3</span>
+                <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm">React</span>
+                <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm">TailwindCSS</span>
+              </div>
+            </div>
+            
+            <div>
+              <h4 class="font-medium text-gray-900 dark:text-white mb-2">Backend</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-secondary-100 dark:bg-secondary-900 text-secondary-800 dark:text-secondary-200 px-3 py-1 rounded-full text-sm">Node.js</span>
+                <span class="bg-secondary-100 dark:bg-secondary-900 text-secondary-800 dark:text-secondary-200 px-3 py-1 rounded-full text-sm">Express</span>
+                <span class="bg-secondary-100 dark:bg-secondary-900 text-secondary-800 dark:text-secondary-200 px-3 py-1 rounded-full text-sm">MongoDB</span>
+              </div>
+            </div>
+            
+            <div>
+              <h4 class="font-medium text-gray-900 dark:text-white mb-2">Herramientas</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full text-sm">Git</span>
+                <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full text-sm">Docker</span>
+                <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full text-sm">VS Code</span>
+              </div>
+            </div>
+          </div>
+        </Section>
+        
         <!-- Sección Educación -->
         <Section id="education" title={t('education.title')}>
           <div class="space-y-3">
@@ -228,46 +262,47 @@ const pageTitle = 'Portfolio - Desarrollador Web';
           </div>
         </Section>
         
-        <!-- Sección Información Adicional -->
-        <FurtherInfo />
+        <!-- Sección Idiomas (visible solo en mobile) -->
+        <div class="block lg:hidden">
+          <Section id="languages" title={t('languages.title')}>
+            <div class="space-y-3">
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="text-gray-800 dark:text-gray-200">Español</span>
+                  <span class="text-gray-600 dark:text-gray-400">Nativo</span>
+                </div>
+                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                  <div class="bg-primary h-2 rounded-full" style="width: 100%"></div>
+                </div>
+              </div>
+              
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="text-gray-800 dark:text-gray-200">Inglés</span>
+                  <span class="text-gray-600 dark:text-gray-400">Avanzado</span>
+                </div>
+                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                  <div class="bg-primary h-2 rounded-full" style="width: 85%"></div>
+                </div>
+              </div>
+              
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="text-gray-800 dark:text-gray-200">Francés</span>
+                  <span class="text-gray-600 dark:text-gray-400">Intermedio</span>
+                </div>
+                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                  <div class="bg-primary h-2 rounded-full" style="width: 60%"></div>
+                </div>
+              </div>
+            </div>
+          </Section>
+        </div>
         
-      </div>
-      
-      <!-- Columna derecha - Información adicional -->
-      <div class="lg:col-span-4 space-y-3">
-        <!-- Sección Habilidades -->
-        <Section id="skills" title={t('skills.title')}>
-          <div class="space-y-3">
-            <div>
-              <h4 class="font-medium text-gray-900 dark:text-white mb-2">Frontend</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm">HTML5</span>
-                <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm">CSS3</span>
-                <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm">JavaScript</span>
-                <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm">React</span>
-                <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm">TailwindCSS</span>
-              </div>
-            </div>
-            
-            <div>
-              <h4 class="font-medium text-gray-900 dark:text-white mb-2">Backend</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="bg-secondary-100 dark:bg-secondary-900 text-secondary-800 dark:text-secondary-200 px-3 py-1 rounded-full text-sm">Node.js</span>
-                <span class="bg-secondary-100 dark:bg-secondary-900 text-secondary-800 dark:text-secondary-200 px-3 py-1 rounded-full text-sm">Express</span>
-                <span class="bg-secondary-100 dark:bg-secondary-900 text-secondary-800 dark:text-secondary-200 px-3 py-1 rounded-full text-sm">MongoDB</span>
-              </div>
-            </div>
-            
-            <div>
-              <h4 class="font-medium text-gray-900 dark:text-white mb-2">Herramientas</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full text-sm">Git</span>
-                <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full text-sm">Docker</span>
-                <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full text-sm">VS Code</span>
-              </div>
-            </div>
-          </div>
-        </Section>
+        <!-- Información adicional (visible solo en mobile) -->
+        <div class="block lg:hidden">
+          <FurtherInfo />
+        </div>
         
         <!-- Sección Contacto -->
         <Section id="contact" title={t('contact.title')}>
@@ -297,6 +332,12 @@ const pageTitle = 'Portfolio - Desarrollador Web';
         </Section>
         
         <!-- Sección Idiomas -->
+        
+      </div>
+      
+      <!-- Columna derecha - Contenido adicional (visible solo en desktop) -->
+      <div class="hidden lg:block lg:col-span-4 space-y-3">
+        <!-- Sección Idiomas en desktop -->
         <Section id="languages" title={t('languages.title')}>
           <div class="space-y-3">
             <div>
@@ -330,6 +371,8 @@ const pageTitle = 'Portfolio - Desarrollador Web';
             </div>
           </div>
         </Section>
+        
+        <FurtherInfo />
       </div>
     </div>
   </div>

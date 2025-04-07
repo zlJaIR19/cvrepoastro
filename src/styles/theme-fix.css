@@ -1,0 +1,254 @@
+/* Theme fix to ensure dark mode is properly applied */
+
+/* Reset all background colors in light mode */
+html:not(.dark) {
+  color-scheme: light !important;
+}
+
+html:not(.dark) body,
+html:not(.dark) nav,
+html:not(.dark) main,
+html:not(.dark) section,
+html:not(.dark) div:not(.bg-gray-100):not(.bg-gray-200):not(.bg-primary-100):not(.bg-secondary-100),
+html:not(.dark) header,
+html:not(.dark) footer {
+  background-color: #ffffff !important;
+  color: #1f2937 !important;
+}
+
+/* Force dark mode background and text colors */
+html.dark {
+  color-scheme: dark !important;
+}
+
+html.dark body,
+html.dark nav,
+html.dark main,
+html.dark section,
+html.dark div:not(.bg-gray-700):not(.bg-gray-800):not(.bg-primary-700):not(.bg-secondary-700),
+html.dark header,
+html.dark footer {
+  background-color: #111827 !important;
+  color: #e5e7eb !important;
+}
+
+/* Language buttons - Light Mode */
+html:not(.dark) .language-btn {
+  background-color: #e5e7eb !important;
+  color: #1f2937 !important;
+  border: 1px solid #d1d5db !important;
+}
+
+html:not(.dark) .language-btn:hover {
+  background-color: #d1d5db !important;
+}
+
+/* Language buttons - Dark Mode */
+html.dark .language-btn {
+  background-color: #374151 !important;
+  color: #e5e7eb !important;
+  border: 1px solid #4b5563 !important;
+}
+
+html.dark .language-btn:hover {
+  background-color: #4b5563 !important;
+}
+
+/* Improved language button for active state */
+html:not(.dark) .language-btn[data-active="true"] {
+  background-color: #bfdbfe !important;
+  color: #1d4ed8 !important;
+  border: 1px solid #93c5fd !important;
+  font-weight: bold !important;
+}
+
+html.dark .language-btn[data-active="true"] {
+  background-color: #1e3a8a !important;
+  color: #93c5fd !important;
+  border: 1px solid #1d4ed8 !important;
+  font-weight: bold !important;
+}
+
+/* Navbar links - remove background and add hover effect */
+html:not(.dark) .nav-link,
+html.dark .nav-link {
+  background-color: transparent !important;
+  padding: 0.5rem 0 !important;
+  border-radius: 0 !important;
+}
+
+html:not(.dark) .nav-link:hover {
+  background-color: transparent !important;
+  color: #2563eb !important;
+}
+
+html.dark .nav-link:hover {
+  background-color: transparent !important;
+  color: #60a5fa !important;
+}
+
+/* Cards in light mode */
+html:not(.dark) .bg-white,
+html:not(.dark) [class*="bg-white"] {
+  background-color: #ffffff !important;
+}
+
+/* Cards in dark mode */
+html.dark .bg-white,
+html.dark [class*="bg-white"] {
+  background-color: #1f2937 !important;
+}
+
+/* Text colors in light mode */
+html:not(.dark) .text-gray-800,
+html:not(.dark) .text-gray-900,
+html:not(.dark) h1, 
+html:not(.dark) h2, 
+html:not(.dark) h3, 
+html:not(.dark) h4, 
+html:not(.dark) h5, 
+html:not(.dark) h6 {
+  color: #1f2937 !important;
+}
+
+/* Text colors in dark mode */
+html.dark .text-gray-800,
+html.dark .text-gray-900,
+html.dark h1, 
+html.dark h2, 
+html.dark h3, 
+html.dark h4, 
+html.dark h5, 
+html.dark h6 {
+  color: #e5e7eb !important;
+}
+
+/* Description text colors in light mode */
+html:not(.dark) .text-gray-700,
+html:not(.dark) p {
+  color: #1f2937 !important;
+}
+
+/* Description text colors in dark mode */
+html.dark .text-gray-700,
+html.dark .text-gray-300,
+html.dark p {
+  color: #e5e7eb !important;
+}
+
+/* List items in light mode */
+html:not(.dark) li,
+html:not(.dark) ul li,
+html:not(.dark) ol li {
+  color: #1f2937 !important;
+}
+
+/* List items in dark mode */
+html.dark li,
+html.dark ul li,
+html.dark ol li {
+  color: #e5e7eb !important;
+}
+
+/* Additional specific fix for list items in the "Intereses" and "Aficiones" sections */
+html:not(.dark) li::marker {
+  color: #1f2937 !important;
+}
+
+html.dark li::marker {
+  color: #e5e7eb !important;
+}
+
+/* For list items with text-gray-400 or similar light colors in light mode */
+html:not(.dark) .text-gray-400,
+html:not(.dark) .text-gray-500,
+html:not(.dark) .text-gray-600 {
+  color: #1f2937 !important;
+}
+
+/* Interest tags in light mode */
+html:not(.dark) .rounded-full {
+  background-color: #e5e7eb !important;
+  color: #1f2937 !important;
+  border: 1px solid #d1d5db !important;
+}
+
+/* Interest tags in dark mode */
+html.dark .rounded-full {
+  background-color: #374151 !important;
+  color: #e5e7eb !important;
+  border: 1px solid #4b5563 !important;
+}
+
+/* Fix specifically for interest tags */
+html:not(.dark) span.rounded-full {
+  background-color: #e5e7eb !important;
+  color: #000000 !important;
+  border: 1px solid #d1d5db !important;
+  font-weight: 500 !important;
+}
+
+html.dark span.rounded-full {
+  background-color: #374151 !important;
+  color: #ffffff !important;
+  border: 1px solid #4b5563 !important;
+  font-weight: 500 !important;
+}
+
+/* Borders in light mode */
+html:not(.dark) .border,
+html:not(.dark) .border-gray-200,
+html:not(.dark) [class*="border-gray-"] {
+  border-color: #e5e7eb !important;
+}
+
+/* Borders in dark mode */
+html.dark .border,
+html.dark .border-gray-200,
+html.dark [class*="border-gray-"] {
+  border-color: #374151 !important;
+}
+
+/* Shadows in light mode */
+html:not(.dark) .shadow-md,
+html:not(.dark) .shadow-lg,
+html:not(.dark) [class*="shadow-"] {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Shadows in dark mode */
+html.dark .shadow-md,
+html.dark .shadow-lg,
+html.dark [class*="shadow-"] {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Fix for theme toggle text */
+html:not(.dark) .dark\:hidden {
+  display: inline !important;
+}
+
+html:not(.dark) .hidden.dark\:inline {
+  display: none !important;
+}
+
+html.dark .dark\:hidden {
+  display: none !important;
+}
+
+html.dark .hidden.dark\:inline {
+  display: inline !important;
+}
+
+/* Ensure transitions are smooth */
+body, 
+nav,
+section, 
+div, 
+span, 
+p, 
+h1, h2, h3, h4, h5, h6, 
+a, 
+button {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
