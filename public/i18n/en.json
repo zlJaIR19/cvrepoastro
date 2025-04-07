@@ -1,6 +1,6 @@
 {
   "nav": {
-    "title": "My Resume",
+    "title": "Resume",
     "home": "Home",
     "about": "About me",
     "education": "Education",
@@ -137,7 +137,7 @@
   },
   "footer": {
     "copyright": "",
-    "rights": "All rights reserved",
+    "rights": "All rights reserved. Developed with Astro",
     "by": ""
   }
 }

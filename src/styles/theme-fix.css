@@ -100,6 +100,8 @@ html.dark [class*="bg-white"] {
 }
 
 /* Text colors in light mode */
+html:not(.dark) .text-gray-600,
+html:not(.dark) .text-gray-700,
 html:not(.dark) .text-gray-800,
 html:not(.dark) .text-gray-900,
 html:not(.dark) h1, 
@@ -107,11 +109,18 @@ html:not(.dark) h2,
 html:not(.dark) h3, 
 html:not(.dark) h4, 
 html:not(.dark) h5, 
-html:not(.dark) h6 {
+html:not(.dark) h6,
+html:not(.dark) p,
+html:not(.dark) li,
+html:not(.dark) span:not(.rounded-full) {
   color: #1f2937 !important;
 }
 
 /* Text colors in dark mode */
+html.dark .text-gray-400,
+html.dark .text-gray-500,
+html.dark .text-gray-600,
+html.dark .text-gray-700,
 html.dark .text-gray-800,
 html.dark .text-gray-900,
 html.dark h1, 
@@ -119,51 +128,32 @@ html.dark h2,
 html.dark h3, 
 html.dark h4, 
 html.dark h5, 
-html.dark h6 {
-  color: #e5e7eb !important;
-}
-
-/* Description text colors in light mode */
-html:not(.dark) .text-gray-700,
-html:not(.dark) p {
-  color: #1f2937 !important;
-}
-
-/* Description text colors in dark mode */
-html.dark .text-gray-700,
-html.dark .text-gray-300,
-html.dark p {
-  color: #e5e7eb !important;
-}
-
-/* List items in light mode */
-html:not(.dark) li,
-html:not(.dark) ul li,
-html:not(.dark) ol li {
-  color: #1f2937 !important;
-}
-
-/* List items in dark mode */
+html.dark h6,
+html.dark p,
 html.dark li,
-html.dark ul li,
-html.dark ol li {
+html.dark span:not(.rounded-full) {
   color: #e5e7eb !important;
 }
 
-/* Additional specific fix for list items in the "Intereses" and "Aficiones" sections */
+/* Footer text colors - specific override */
+html:not(.dark) footer .text-gray-600,
+html:not(.dark) footer .text-gray-400 {
+  color: #4b5563 !important;
+}
+
+html.dark footer .text-gray-400,
+html.dark footer .text-gray-600 {
+  color: #9ca3af !important;
+}
+
+/* List markers in light mode */
 html:not(.dark) li::marker {
   color: #1f2937 !important;
 }
 
+/* List markers in dark mode */
 html.dark li::marker {
   color: #e5e7eb !important;
-}
-
-/* For list items with text-gray-400 or similar light colors in light mode */
-html:not(.dark) .text-gray-400,
-html:not(.dark) .text-gray-500,
-html:not(.dark) .text-gray-600 {
-  color: #1f2937 !important;
 }
 
 /* Interest tags in light mode */

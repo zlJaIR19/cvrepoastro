@@ -204,7 +204,7 @@
     "title": "Contacto"
   },
   "footer": {
-    "rights": "Todos los derechos reservados",
+    "rights": "Todos los derechos reservados. Desarrollado con Astro",
     "copyright": "Todos los derechos reservados",
     "by": "por"
   }
