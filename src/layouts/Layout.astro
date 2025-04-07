@@ -15,8 +15,9 @@ const { title = 'Portfolio' } = Astro.props;
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio personal">
+  <meta name="description" content="Portfolio profesional con CV y proyectos">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="generator" content={Astro.generator}>
   <title>{title}</title>
   
   <!-- Añadir ViewTransitions para transiciones suaves entre páginas -->
@@ -24,26 +25,49 @@ const { title = 'Portfolio' } = Astro.props;
   
   <!-- Prevenir parpadeo al cargar la página - Script mínimo para aplicar tema inicial -->
   <script is:inline>
-    // Aplicar tema inicial para evitar parpadeo (FLOC)
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark');
-    } else if (savedTheme === 'light') {
-      document.documentElement.classList.remove('dark');
     } else {
-      // Si no hay tema guardado, usar preferencia del sistema
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
+      document.documentElement.classList.remove('dark');
     }
+
+    // Define toggle function according to Tailwind docs
+    window.toggleTheme = function() {
+      // Check if dark mode is currently active
+      if (document.documentElement.classList.contains('dark')) {
+        // If dark mode is active, switch to light mode
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        
+        // Update icons
+        const moonIcon = document.getElementById('moon-icon');
+        const sunIcon = document.getElementById('sun-icon');
+        if (moonIcon && sunIcon) {
+          moonIcon.classList.remove('hidden');
+          sunIcon.classList.add('hidden');
+        }
+      } else {
+        // If light mode is active, switch to dark mode
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        
+        // Update icons
+        const moonIcon = document.getElementById('moon-icon');
+        const sunIcon = document.getElementById('sun-icon');
+        if (moonIcon && sunIcon) {
+          moonIcon.classList.add('hidden');
+          sunIcon.classList.remove('hidden');
+        }
+      }
+    };
   </script>
   
-  <!-- Script de traducciones -->
+  <!-- Cargar scripts principales -->
+  <script src="/scripts/theme.js" defer></script>
   <script src="/scripts/i18n.js" defer></script>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen flex flex-col">
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen flex flex-col transition-colors duration-200">
   <Navbar />
   
   <main class="flex-grow pt-6">

@@ -6,37 +6,30 @@
 
 // Función para inicializar el tema basado en la preferencia guardada o del sistema
 export function initTheme() {
-  // Obtener elementos del DOM
-  const darkModeToggle = document.getElementById('darkModeToggle');
-  const htmlElement = document.documentElement;
+  // Make toggleTheme available globally for inline onclick handlers
+  window.toggleTheme = toggleTheme;
   
-  // Comprobar si hay una preferencia guardada
+  // Aplicar tema inicial basado en localStorage o preferencia del sistema
   const savedTheme = localStorage.getItem('theme');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   
-  // Aplicar tema inicial
   if (savedTheme === 'dark') {
-    htmlElement.classList.add('dark');
-    updateThemeIcons(true);
+    document.documentElement.classList.add('dark');
   } else if (savedTheme === 'light') {
-    htmlElement.classList.remove('dark');
-    updateThemeIcons(false);
+    document.documentElement.classList.remove('dark');
   } else {
     // Si no hay preferencia guardada, usar la preferencia del sistema
     if (prefersDark) {
-      htmlElement.classList.add('dark');
+      document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
     } else {
-      htmlElement.classList.remove('dark');
+      document.documentElement.classList.remove('dark');
       localStorage.setItem('theme', 'light');
     }
-    updateThemeIcons(prefersDark);
   }
   
-  // Añadir listener para el botón de cambio de tema
-  if (darkModeToggle) {
-    darkModeToggle.addEventListener('click', toggleTheme);
-  }
+  // Update icons based on current theme
+  updateThemeIcons();
   
   // Añadir listener para cambios en la preferencia del sistema
   try {
@@ -44,11 +37,11 @@ export function initTheme() {
       // Solo cambiar automáticamente si el usuario no ha establecido una preferencia
       if (!localStorage.getItem('theme')) {
         if (e.matches) {
-          htmlElement.classList.add('dark');
+          document.documentElement.classList.add('dark');
         } else {
-          htmlElement.classList.remove('dark');
+          document.documentElement.classList.remove('dark');
         }
-        updateThemeIcons(e.matches);
+        updateThemeIcons();
       }
     });
   } catch (error) {
@@ -58,20 +51,22 @@ export function initTheme() {
 
 // Función para cambiar entre temas
 export function toggleTheme() {
-  const htmlElement = document.documentElement;
-  const isDark = htmlElement.classList.contains('dark');
+  const isDark = document.documentElement.classList.contains('dark');
   
   if (isDark) {
-    htmlElement.classList.remove('dark');
+    // Switch to light theme
+    document.documentElement.classList.remove('dark');
     localStorage.setItem('theme', 'light');
   } else {
-    htmlElement.classList.add('dark');
+    // Switch to dark theme
+    document.documentElement.classList.add('dark');
     localStorage.setItem('theme', 'dark');
   }
   
-  updateThemeIcons(!isDark);
+  // Update icons based on new theme state
+  updateThemeIcons();
   
-  // Añadir una animación suave de transición
+  // Add smooth transition
   document.body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
   setTimeout(() => {
     document.body.style.transition = '';
@@ -79,7 +74,8 @@ export function toggleTheme() {
 }
 
 // Función para actualizar los iconos del tema
-export function updateThemeIcons(isDark) {
+export function updateThemeIcons() {
+  const isDark = document.documentElement.classList.contains('dark');
   const moonIcon = document.getElementById('moon-icon');
   const sunIcon = document.getElementById('sun-icon');
   

@@ -57,7 +57,7 @@ const { lang, t } = getI18n(Astro.url);
         </div>
         
         <!-- Dark Mode Toggle -->
-        <button id="darkModeToggle" class="p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-gray-800 dark:text-gray-200">
+        <button id="darkModeToggle" class="p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-gray-800 dark:text-gray-200" aria-label="Toggle dark mode" onclick="toggleTheme()">
           <svg id="moon-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
           </svg>
@@ -123,13 +123,11 @@ const { lang, t } = getI18n(Astro.url);
 
 <script>
   // Importar utilidades
-  import { initTheme } from '../../utils/theme.js';
   import { initI18n } from '../../utils/i18n.js';
   
   // Inicializar cuando el DOM esté listo
   document.addEventListener('DOMContentLoaded', () => {
-    // Inicializar tema
-    initTheme();
+    console.log('DOM content loaded, initializing i18n');
     
     // Inicializar traducciones
     initI18n();

@@ -15,3 +15,13 @@ body {
 section {
   padding-top: 1rem;
 }
+
+/* Add a transition for smooth theme switching */
+:root {
+  --transition-duration: 0.3s;
+}
+
+html, body {
+  transition: background-color var(--transition-duration) ease, 
+             color var(--transition-duration) ease;
+}
