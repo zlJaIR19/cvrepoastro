@@ -45,8 +45,8 @@ export function getTranslation(lang, key) {
     }
   }
   
-  // Si la traducción es un objeto, devolvemos la clave original
-  if (typeof translation === 'object') {
+  // Permitimos devolver arrays
+  if (typeof translation === 'object' && !Array.isArray(translation)) {
     return key;
   }
   

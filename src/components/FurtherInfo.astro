@@ -1,34 +1,52 @@
 ---
-import "../styles/global.css";
-import { getI18n } from "../i18n/utils";
+import Section from './ui/Section.astro';
+import T from './ui/T.astro';
+import { getI18n } from '../i18n/utils';
 
-const { lang } = getI18n(Astro.url);
+const { lang, t } = getI18n(Astro.url);
+
+// Obtener las traducciones directamente del archivo JSON
+const interestsTitle = t('furtherInfo.interests.title');
+const hobbiesTitle = t('furtherInfo.hobbies.title');
+
+// Obtener los arrays de intereses y aficiones
+const interestsItems = [
+  "Diseño de procesos",
+  "Mejora continua",
+  "Gestión de proyectos",
+  "Automatización"
+];
+
+const hobbiesItems = [
+  "Lectura",
+  "Senderismo",
+  "Fotografía",
+  "Viajes"
+];
 ---
 
-<section id="furtherInfo" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
-  <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white" data-i18n="furtherInfo.title">Información adicional</h2>
-  
-  <div class="h-1 w-24 bg-blue-600 dark:bg-blue-400 mb-6"></div>
-  
-  <div class="space-y-6">
-    <div class="mb-4" data-i18n-group="furtherInfo.interests">
-      <h3 class="text-lg font-medium text-gray-800 dark:text-white mb-2" data-i18n-key="title">Intereses</h3>
-      <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1">
-        <li data-i18n-key="items[0]">Diseño de procesos</li>
-        <li data-i18n-key="items[1]">Mejora continua</li>
-        <li data-i18n-key="items[2]">Gestión de proyectos</li>
-        <li data-i18n-key="items[3]">Automatización</li>
+<Section id="furtherInfo" title={t('furtherInfo.title')}>
+  <div class="space-y-4">
+    <div class="mb-3">
+      <h3 class="text-lg font-medium text-gray-800 dark:text-white mb-1">
+        {interestsTitle}
+      </h3>
+      <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-0.5">
+        {interestsItems.map((item) => (
+          <li>{item}</li>
+        ))}
       </ul>
     </div>
     
-    <div class="mb-4" data-i18n-group="furtherInfo.hobbies">
-      <h3 class="text-lg font-medium text-gray-800 dark:text-white mb-2" data-i18n-key="title">Aficiones</h3>
-      <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1">
-        <li data-i18n-key="items[0]">Lectura</li>
-        <li data-i18n-key="items[1]">Senderismo</li>
-        <li data-i18n-key="items[2]">Fotografía</li>
-        <li data-i18n-key="items[3]">Viajes</li>
+    <div class="mb-3">
+      <h3 class="text-lg font-medium text-gray-800 dark:text-white mb-1">
+        {hobbiesTitle}
+      </h3>
+      <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-0.5">
+        {hobbiesItems.map((item) => (
+          <li>{item}</li>
+        ))}
       </ul>
     </div>
   </div>
-</section>
+</Section>
