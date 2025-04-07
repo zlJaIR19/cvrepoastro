@@ -1,8 +1,9 @@
 import es from './es.json';
 import en from './en.json';
+import fr from './fr.json';
 
 // Objeto con todas las traducciones disponibles
-const translations = { es, en };
+const translations = { es, en, fr };
 
 // Función para obtener el idioma actual desde la URL o localStorage
 export function getCurrentLanguage(url) {

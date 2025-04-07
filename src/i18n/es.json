@@ -96,25 +96,81 @@
   },
   "education": {
     "title": "Educación",
-    "description1": "Formación completa en desarrollo de software, algoritmos y estructuras de datos. Especialización en desarrollo web.",
-    "description2": "Especialización en tecnologías web modernas, incluyendo frameworks frontend y backend, bases de datos y arquitectura de aplicaciones.",
+    "degrees": [
+      {
+        "name": "Ingeniería Informática",
+        "institution": "Universidad XYZ",
+        "period": "2014 - 2018",
+        "description": "Formación completa en desarrollo de software, algoritmos y estructuras de datos. Especialización en desarrollo web."
+      },
+      {
+        "name": "Máster en Desarrollo Web",
+        "institution": "Instituto ABC",
+        "period": "2018 - 2019",
+        "description": "Especialización en tecnologías web modernas, incluyendo frameworks frontend y backend, bases de datos y arquitectura de aplicaciones."
+      }
+    ],
     "degree": "Título",
     "institution": "Institución",
     "period": "Periodo"
   },
   "courses": {
     "title": "Cursos y Certificaciones",
-    "description1": "Curso avanzado de React que cubre hooks, context, Redux, y patrones de arquitectura para aplicaciones escalables.",
-    "description2": "Formación completa en desarrollo web, desde HTML/CSS/JS hasta Node.js, Express y MongoDB.",
+    "list": [
+      {
+        "name": "Curso avanzado de React",
+        "institution": "Platzi",
+        "date": "2023",
+        "description": "Curso avanzado de React que cubre hooks, context, Redux, y patrones de arquitectura para aplicaciones escalables."
+      },
+      {
+        "name": "Desarrollo Web Completo",
+        "institution": "Udemy",
+        "date": "2022",
+        "description": "Formación completa en desarrollo web, desde HTML/CSS/JS hasta Node.js, Express y MongoDB."
+      }
+    ],
     "course": "Curso",
     "institution": "Institución",
-    "date": "Fecha"
+    "date": "Fecha",
+    "view_certificate": "Ver certificado"
   },
   "skills": {
-    "title": "Habilidades Técnicas",
-    "frontend": "Frontend",
-    "backend": "Backend",
-    "tools": "Herramientas"
+    "title": "Habilidades técnicas",
+    "technical": [
+      {
+        "name": "BPMN",
+        "level": 5
+      },
+      {
+        "name": "SAP",
+        "level": 4
+      },
+      {
+        "name": "Excel",
+        "level": 4
+      }
+    ],
+    "languages": {
+      "title": "Idiomas",
+      "list": [
+        {
+          "name": "Español",
+          "level": 5
+        },
+        {
+          "name": "Inglés",
+          "level": 4
+        },
+        {
+          "name": "Francés",
+          "level": 3
+        }
+      ]
+    },
+    "advanced": "Avanzado",
+    "intermediate": "Intermedio",
+    "basic": "Básico"
   },
   "languages": {
     "title": "Idiomas",
@@ -124,8 +180,25 @@
     "basic": "Básico"
   },
   "furtherInfo": {
-    "title": "Información Adicional",
-    "description": "Información adicional sobre mis intereses, hobbies y otras actividades."
+    "title": "Información adicional",
+    "interests": {
+      "title": "Intereses",
+      "items": [
+        "Diseño de procesos",
+        "Mejora continua",
+        "Gestión de proyectos",
+        "Automatización"
+      ]
+    },
+    "hobbies": {
+      "title": "Aficiones",
+      "items": [
+        "Lectura",
+        "Senderismo",
+        "Fotografía",
+        "Viajes"
+      ]
+    }
   },
   "contact": {
     "title": "Contacto"

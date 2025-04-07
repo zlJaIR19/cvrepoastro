@@ -1,37 +1,8 @@
 ---
 import "../styles/global.css";
+import { getI18n } from "../i18n/utils";
 
-interface Course {
-  name: string;
-  institution: string;
-  date: string;
-  certificate: boolean;
-  url: string;
-}
-
-const coursesData: Course[] = [
-  {
-    name: "UX/UI Design Masterclass",
-    institution: "Coursera",
-    date: "2023",
-    certificate: true,
-    url: "#"
-  },
-  {
-    name: "Design Thinking for Innovation",
-    institution: "OpenClassrooms",
-    date: "2023",
-    certificate: true,
-    url: "#"
-  },
-  {
-    name: "Digital Marketing Fundamentals",
-    institution: "Google Digital Garage",
-    date: "2022",
-    certificate: true,
-    url: "#"
-  }
-];
+const { lang } = getI18n(Astro.url);
 ---
 
 <section id="courses" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
@@ -40,26 +11,40 @@ const coursesData: Course[] = [
   <div class="h-1 w-24 bg-blue-600 dark:bg-blue-400 mb-6"></div>
   
   <div class="space-y-4">
-    {coursesData.map((course) => (
-      <div class="mb-4">
-        <h3 class="text-lg font-medium text-gray-800 dark:text-white">{course.name}</h3>
-        <div class="flex flex-col sm:flex-row sm:items-center text-sm text-gray-600 dark:text-gray-400 mt-1">
-          <span data-i18n-key="courses.institution">{course.institution}</span>
-          <span class="hidden sm:inline mx-2">•</span>
-          <span data-i18n-key="courses.date">{course.date}</span>
-        </div>
-        {course.certificate && (
-          <div class="mt-2">
-            <a href={course.url} class="text-blue-600 dark:text-blue-400 text-sm hover:underline flex items-center">
-              <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
-                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
-              </svg>
-              Voir le certificat
-            </a>
-          </div>
-        )}
+    <div class="mb-4" data-i18n-group="courses.list[0]">
+      <h3 class="text-lg font-medium text-gray-800 dark:text-white" data-i18n-key="name">Curso avanzado de React</h3>
+      <div class="flex flex-col sm:flex-row sm:items-center text-sm text-gray-600 dark:text-gray-400 mt-1">
+        <span data-i18n-key="institution">Platzi</span>
+        <span class="hidden sm:inline mx-2">•</span>
+        <span data-i18n-key="date">2023</span>
       </div>
-    ))}
+      <div class="mt-2">
+        <a href="#" class="text-blue-600 dark:text-blue-400 text-sm hover:underline flex items-center" data-i18n-key="view_certificate">
+          <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+            <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
+          </svg>
+          Ver certificado
+        </a>
+      </div>
+    </div>
+
+    <div class="mb-4" data-i18n-group="courses.list[1]">
+      <h3 class="text-lg font-medium text-gray-800 dark:text-white" data-i18n-key="name">Desarrollo Web Completo</h3>
+      <div class="flex flex-col sm:flex-row sm:items-center text-sm text-gray-600 dark:text-gray-400 mt-1">
+        <span data-i18n-key="institution">Udemy</span>
+        <span class="hidden sm:inline mx-2">•</span>
+        <span data-i18n-key="date">2022</span>
+      </div>
+      <div class="mt-2">
+        <a href="#" class="text-blue-600 dark:text-blue-400 text-sm hover:underline flex items-center" data-i18n-key="view_certificate">
+          <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+            <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
+          </svg>
+          Ver certificado
+        </a>
+      </div>
+    </div>
   </div>
 </section>

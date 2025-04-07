@@ -1,38 +1,41 @@
 ---
 import "../styles/global.css";
+import { getI18n } from "../i18n/utils";
+
+const { lang } = getI18n(Astro.url);
 ---
 
 <section id="hero" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
   <div class="flex flex-col">
     <!-- Profile Info -->
     <div class="w-full text-left">
-      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">
-        Your Name
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2" data-i18n="hero.name">
+        Juan Pérez
       </h1>
-      <h2 class="text-xl md:text-2xl text-blue-600 dark:text-blue-400 mb-4" data-i18n="hero.title">Desarrollador Frontend</h2>
+      <h2 class="text-xl md:text-2xl text-blue-600 dark:text-blue-400 mb-4" data-i18n="hero.title">Ingeniero Industrial</h2>
       
       <div class="h-1 w-32 bg-blue-600 dark:bg-blue-400 mb-6"></div>
       
       <!-- Contact Info -->
       <div class="flex flex-wrap gap-4 mb-6">
-        <a href="tel:+1234567890" class="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+        <a href="tel:+34600000000" class="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400" data-i18n-group="hero.contact">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
           </svg>
-          <span>+123 456 7890</span>
+          <span data-i18n-key="phone">+34 600 000 000</span>
         </a>
-        <a href="mailto:your.email@example.com" class="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+        <a href="mailto:correo@ejemplo.com" class="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400" data-i18n-group="hero.contact">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
             <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
           </svg>
-          <span>your.email@example.com</span>
+          <span data-i18n-key="email">correo@ejemplo.com</span>
         </a>
-        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+        <a href="https://linkedin.com/in/perfil" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400" data-i18n-group="hero.contact">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path>
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
           </svg>
-          <span>github.com/yourusername</span>
+          <span data-i18n-key="linkedin">linkedin.com/in/perfil</span>
         </a>
       </div>
       

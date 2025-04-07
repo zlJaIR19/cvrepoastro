@@ -5,7 +5,7 @@ import { getI18n } from "../i18n/utils";
 const { lang } = getI18n(Astro.url);
 ---
 
-<nav class="sticky top-0 z-50 bg-white dark:bg-gray-800 shadow-md print-hide">
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-800 shadow-md print-hide">
   <div class="container mx-auto px-4 py-3">
     <div class="flex justify-between items-center">
       <!-- Logo/Name -->
@@ -23,9 +23,9 @@ const { lang } = getI18n(Astro.url);
       <!-- Language and Dark Mode Toggles -->
       <div class="flex items-center space-x-4">
         <!-- CV and Contact Buttons -->
-        <div class="hidden md:flex space-x-2">
+        <div class="flex space-x-2">
           <a href="#contact" class="px-3 py-1.5 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors" data-i18n="hero.contact">Contacto</a>
-          <a href="/cv.pdf" download class="px-3 py-1.5 rounded-md bg-primary-500 text-white text-sm font-medium hover:bg-primary-600 transition-colors" data-i18n="hero.download">Descargar C.V</a>
+          <a href="/cv.pdf" download class="px-3 py-1.5 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors" data-i18n="hero.download">Descargar CV</a>
         </div>
         
         <!-- Language Switcher -->
@@ -72,7 +72,7 @@ const { lang } = getI18n(Astro.url);
         <!-- Mobile CV and Contact Buttons -->
         <div class="flex space-x-2 mt-2">
           <a href="#contact" class="px-3 py-1.5 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors" data-i18n="hero.contact">Contacto</a>
-          <a href="/cv.pdf" download class="px-3 py-1.5 rounded-md bg-primary-500 text-white text-sm font-medium hover:bg-primary-600 transition-colors" data-i18n="hero.download">Descargar C.V</a>
+          <a href="/cv.pdf" download class="px-3 py-1.5 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors" data-i18n="hero.download">Descargar CV</a>
         </div>
       </div>
     </div>
