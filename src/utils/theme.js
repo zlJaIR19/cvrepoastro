@@ -1,51 +1,71 @@
 /**
- * Sistema de gestión de temas mejorado para el portfolio
+ * Sistema de gestión de temas unificado para el portfolio
  * Proporciona funciones para cambiar entre modo claro y oscuro
+ * Versión mejorada para funcionar consistentemente en diferentes navegadores
  */
 
 // Función para inicializar el tema basado en la preferencia guardada o del sistema
 export function initTheme() {
+  // Obtener elementos del DOM
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const htmlElement = document.documentElement;
+  
+  // Comprobar si hay una preferencia guardada
   const savedTheme = localStorage.getItem('theme');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   
   // Aplicar tema inicial
-  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-    document.documentElement.classList.add('dark');
+  if (savedTheme === 'dark') {
+    htmlElement.classList.add('dark');
     updateThemeIcons(true);
-  } else {
-    document.documentElement.classList.remove('dark');
+  } else if (savedTheme === 'light') {
+    htmlElement.classList.remove('dark');
     updateThemeIcons(false);
+  } else {
+    // Si no hay preferencia guardada, usar la preferencia del sistema
+    if (prefersDark) {
+      htmlElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      htmlElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+    updateThemeIcons(prefersDark);
   }
   
   // Añadir listener para el botón de cambio de tema
-  const darkModeToggle = document.getElementById('darkModeToggle');
   if (darkModeToggle) {
     darkModeToggle.addEventListener('click', toggleTheme);
   }
   
   // Añadir listener para cambios en la preferencia del sistema
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-    if (!localStorage.getItem('theme')) {
+  try {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
       // Solo cambiar automáticamente si el usuario no ha establecido una preferencia
-      if (e.matches) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
+      if (!localStorage.getItem('theme')) {
+        if (e.matches) {
+          htmlElement.classList.add('dark');
+        } else {
+          htmlElement.classList.remove('dark');
+        }
+        updateThemeIcons(e.matches);
       }
-      updateThemeIcons(e.matches);
-    }
-  });
+    });
+  } catch (error) {
+    console.error('Error al añadir listener para cambios en preferencia del sistema:', error);
+  }
 }
 
 // Función para cambiar entre temas
 export function toggleTheme() {
-  const isDark = document.documentElement.classList.contains('dark');
+  const htmlElement = document.documentElement;
+  const isDark = htmlElement.classList.contains('dark');
   
   if (isDark) {
-    document.documentElement.classList.remove('dark');
+    htmlElement.classList.remove('dark');
     localStorage.setItem('theme', 'light');
   } else {
-    document.documentElement.classList.add('dark');
+    htmlElement.classList.add('dark');
     localStorage.setItem('theme', 'dark');
   }
   

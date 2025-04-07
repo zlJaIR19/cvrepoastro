@@ -22,16 +22,21 @@ const { title = 'Portfolio' } = Astro.props;
   <!-- Añadir ViewTransitions para transiciones suaves entre páginas -->
   <ViewTransitions />
   
-  <!-- Prevenir parpadeo al cargar la página -->
+  <!-- Prevenir parpadeo al cargar la página - Script mínimo para aplicar tema inicial -->
   <script is:inline>
-    // Aplicar tema oscuro inmediatamente si está guardado en localStorage
+    // Aplicar tema inicial para evitar parpadeo (FLOC)
     const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+    if (savedTheme === 'dark') {
       document.documentElement.classList.add('dark');
-    } else {
+    } else if (savedTheme === 'light') {
       document.documentElement.classList.remove('dark');
+    } else {
+      // Si no hay tema guardado, usar preferencia del sistema
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
     }
   </script>
   

@@ -1,2 +1,17 @@
 @import "tailwindcss";
 
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Ensure content is visible below navbar */
+}
+
+/* Add padding for fixed navbar */
+body {
+  padding-top: 60px; /* Minimal padding to account for fixed navbar */
+}
+
+/* Ensure sections have enough padding to be visible */
+section {
+  padding-top: 1rem;
+}

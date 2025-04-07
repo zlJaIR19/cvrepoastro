@@ -6,14 +6,19 @@
 // Función para cargar traducciones
 export async function loadTranslations(lang) {
   try {
-    const response = await fetch(`/src/i18n/${lang}.json`);
+    // First try the public folder which is the most likely location
+    const response = await fetch(`/i18n/${lang}.json`);
+    
     if (!response.ok) {
-      console.error(`Error al cargar traducciones para ${lang}: ${response.status}`);
+      console.error(`Error loading translations for ${lang}: ${response.status}`);
       return null;
     }
-    return await response.json();
+    
+    const translations = await response.json();
+    console.log(`Successfully loaded translations for ${lang}:`, translations);
+    return translations;
   } catch (error) {
-    console.error(`Error al cargar traducciones para ${lang}:`, error);
+    console.error(`Error loading translations for ${lang}:`, error);
     return null;
   }
 }
@@ -21,6 +26,8 @@ export async function loadTranslations(lang) {
 // Función para aplicar traducciones a elementos con data-i18n
 export function applyTranslations(translations) {
   if (!translations) return;
+  
+  console.log('Applying translations:', translations);
   
   document.querySelectorAll('[data-i18n]').forEach(element => {
     const key = element.getAttribute('data-i18n');
@@ -30,7 +37,10 @@ export function applyTranslations(translations) {
     const value = key.split('.').reduce((obj, k) => obj && obj[k], translations);
     
     if (value) {
+      console.log(`Updating element with key ${key} to value ${value}`);
       element.textContent = value;
+    } else {
+      console.warn(`Translation missing for key: ${key}`);
     }
   });
 }
@@ -42,13 +52,22 @@ export function changeLanguage(lang) {
     return;
   }
   
+  console.log(`Changing language to: ${lang}`);
   localStorage.setItem('language', lang);
   updateActiveLanguageButton(lang);
   
   loadTranslations(lang)
     .then(translations => {
       if (translations) {
+        // Apply translations to all elements with data-i18n attributes
         applyTranslations(translations);
+        
+        // Force refresh of the navbar title specifically
+        const navTitle = document.querySelector('[data-i18n="nav.title"]');
+        if (navTitle && translations.nav && translations.nav.title) {
+          navTitle.textContent = translations.nav.title;
+          console.log('Updated navbar title to:', translations.nav.title);
+        }
       }
     });
 }
